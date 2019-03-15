@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace preworkChallenges
+namespace preworkQuestion1
 {
     class Program
     {
@@ -16,6 +16,15 @@ namespace preworkChallenges
             chosenYear = Convert.ToInt32(Console.ReadLine());
             Console.Write("Is " + chosenYear + " a leap year?");
             Q2(chosenYear);
+
+            Console.Write("Please choose 3 numbers: ");
+            int[] array = new int[3];
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Console.Write("Is this a perfect sequence?");
+            Q3(array);
 
 
             Console.Read();
@@ -62,5 +71,39 @@ namespace preworkChallenges
             }
 
         }
+
+        public static string Q3(int[] array)
+        {
+            int product = 1;
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] <= 0)
+                {
+                    Console.WriteLine(" No.");
+                    return "no";
+                }
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                product *= array[i];
+            }
+            int sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+            }
+            if (product == sum)
+            {
+                Console.WriteLine(" Yes.");
+                return "yes";
+            }
+            else
+            {
+                Console.WriteLine(" No.");
+                return "no";
+            }
+        }
+
+
     }
 }
