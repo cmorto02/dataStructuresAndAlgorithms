@@ -9,6 +9,22 @@ namespace preworkQuestion1
             Console.Write("Please choose a number between 1 and 10: ");
             int chosenNumber;
             chosenNumber = Convert.ToInt32(Console.ReadLine());
+            Q1(chosenNumber);
+
+            Console.Write("Please choose a year: ");
+            int chosenYear;
+            chosenYear = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Is " + chosenYear + " a leap year?");
+            Q2(chosenYear);
+
+
+            Console.Read();
+
+
+        }
+
+        private static void Q1(int chosenNumber)
+        {
 
             int[] random = new int[5];
             Random randNum = new Random();
@@ -29,11 +45,22 @@ namespace preworkQuestion1
             {
                 Console.Write(random[i]);
             }
-            Console.Write("You chose " +chosenNumber+" and your score is "+chosenNumber*count +".");
-            Console.Read();
-
+            Console.WriteLine("You chose " + chosenNumber + " and your score is " + chosenNumber * count + ".");
         }
 
+        public static string Q2(int chosenYear)
+        {
+            if(chosenYear % 4 == 0 && !(chosenYear % 100 == 0 && chosenYear % 400 != 0))
+            {
+                Console.WriteLine(" Yes.");
+                return "yes";
+            }
+            else
+            {
+                Console.WriteLine(" No.");
+                return "no";
+            }
 
+        }
     }
 }
