@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace preworkQuestion1
+namespace preworkChallenges
 {
     class Program
     {
