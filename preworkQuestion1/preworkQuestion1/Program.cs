@@ -26,6 +26,24 @@ namespace preworkQuestion1
             Console.Write("Is this a perfect sequence?");
             Q3(array);
 
+            Console.Write("Please choose the length of your multidimensional array: ");
+            int length = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Please choose the width of your multidimensional array: ");
+            int width = Convert.ToInt32(Console.ReadLine());
+            int[,] chosenArray = new int[width, length];
+
+            //to fill the chosen array with numbers from the user.
+            Console.Write("Please choose the numbers inside your multidimensional array: ");
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < length; j++)
+                {
+                    chosenArray[i, j] = Convert.ToInt32(Console.ReadLine());
+                }
+            }
+
+            Console.Write("The sums of all the ints inside each of your arrays at each level are: ");
+            Q4(chosenArray);
 
             Console.Read();
 
@@ -104,6 +122,23 @@ namespace preworkQuestion1
             }
         }
 
+       public static int[] Q4(int[,] chosenArray)
+       {
+            int chosenArrayLength = chosenArray.GetLength(1);
+            int chosenArrayWidth = chosenArray.GetLength(0);
+
+            int[] sums = new int[chosenArrayWidth];
+            
+            for (int i = 0; i < chosenArrayWidth; i++)
+            {
+                for (int j = 0; j < chosenArrayLength; j++)
+                {
+                    sums[i] += chosenArray[i,j];
+                }
+            }
+            Console.WriteLine("[{0}]", string.Join(", ", sums));
+            return sums;
+        }
 
     }
 }
